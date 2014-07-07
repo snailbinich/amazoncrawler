@@ -1,37 +1,27 @@
 package amazon;
 
 import java.io.IOException;
-import java.util.Iterator;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
+
+import amazon.util.ProductCrawler;
 
 public class OtherTest {
+	private static final Logger logger = Logger.getLogger(OtherTest.class);
 
 	public static void main(String[] args) throws IOException {
-		Document doc = Jsoup.connect("http://www.amazon.com/gp/product/B0079KAVN0").get();
-		Elements newsHeadlines = doc.select("#productTitle");
-		System.out.println(newsHeadlines.text());
-		
-		Elements sizeList = doc.select("#native_dropdown_selected_size_name option");
-		System.out.println(sizeList.html());
-		
-		System.out.println("--------");
-		Elements quantity = doc.select("#quantity");
-		System.out.println(quantity.html());
-//		System.out.println(newsHeadlines.to);
-//		Iterator<Element> elementIter = newsHeadlines.iterator();
-//		while(elementIter.hasNext()){
-//			Element nextElement = elementIter.next();
-//			System.out.println(nextElement.text());
+//		Document doc = Jsoup.connect("http://www.amazon.com/gp/product/B0055QZ216").get();
+//		String[] productArray = {"B0055QZ216","B000IE8Z4Q","B002UJGK1C"};
+//		for (String asin:productArray){
+//			 System.out.println(ProductCrawler.getProductByAsin(asin));		
 //		}
-//		System.out.println(newsHeadlines.html());
-		
-//		Document
-		
-
+//	   private static final Logger logger = LoggerFactory.getLogger(OtherTest.class);  
+	   logger.info("I'm starting");
+	   // аЌзг: B005FI5OA8
+	   // ЪѓБъ:B0055QZ216
+       System.out.println(ProductCrawler.getProductByAsin("B005FI5OA8"));
 	}
+	
 
 }
